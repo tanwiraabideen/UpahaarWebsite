@@ -36,3 +36,10 @@ model UpcomingEvents {
   eventDescription String
   eventImages      String[]
 }
+
+model Trustees {
+  trusteeId   String @id @default(cuid())
+  name        String
+  image       String
+  description String
+}

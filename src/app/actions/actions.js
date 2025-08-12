@@ -32,3 +32,12 @@ export async function getUpcomingEvents() {
         throw error
     }
 }
+
+export async function getTrustees() {
+    try {
+        const trustees = await prisma.trustees.findMany()
+        return trustees
+    } catch (error) {
+        throw error
+    }
+}
