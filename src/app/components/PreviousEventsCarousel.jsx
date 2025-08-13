@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { getPreviousEvents } from "../actions/actions";
@@ -45,20 +44,43 @@ const ImageCarousel = ({ images }) => {
 };
 
 const DummyContent = ({ heading, paragraph, images }) => {
+    // Split paragraph by double line breaks to create separate paragraphs
+    const paragraphs = paragraph ? paragraph.split('\n\n').filter(p => p.trim()) : [];
+
     return (
         <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
             {/* Image carousel at the top */}
             <ImageCarousel images={images} />
 
-            {/* Event description */}
-            <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-                <span className="font-bold text-neutral-700 dark:text-neutral-200">
-                    {heading}
-                </span>{" "}
-                {paragraph}
-            </p>
+            {/* Event heading */}
+            <h3 className="font-bold text-neutral-700 dark:text-neutral-200 text-lg md:text-3xl font-sans max-w-3xl mx-auto mb-4">
+                {heading}
+            </h3>
+
+            {/* Event description with spaced paragraphs */}
+            <div className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto space-y-4">
+                {paragraphs.length > 0 ? (
+                    paragraphs.map((para, index) => (
+                        <p key={index} className="leading-relaxed">
+                            {para.trim()}
+                        </p>
+                    ))
+                ) : (
+                    <p className="leading-relaxed">{paragraph}</p>
+                )}
+            </div>
         </div>
     );
+};
+
+// Helper function to format date
+const formatEventDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
 };
 
 export function PreviousEventsCarousel() {
@@ -76,13 +98,12 @@ export function PreviousEventsCarousel() {
                 setLoading(false);
             }
         };
-
         fetchPreviousEvents();
     }, []);
 
     const sortedData = previousEvents
         .map((previousEvent) => ({
-            category: previousEvent.eventCity,
+            category: `${previousEvent.eventCity} | ${formatEventDate(previousEvent.eventDate)}`,
             title: previousEvent.eventTitle,
             src: previousEvent.eventImages[0],
             date: previousEvent.eventDate,
@@ -105,7 +126,6 @@ export function PreviousEventsCarousel() {
             <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
                 Upahaar's previous events.
             </h2>
-
             {loading ? (
                 <LoadingSpinner></LoadingSpinner>
             ) : previousEvents.length === 0 ? (

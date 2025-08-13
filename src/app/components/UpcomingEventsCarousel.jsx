@@ -45,20 +45,42 @@ const ImageCarousel = ({ images }) => {
 };
 
 const DummyContent = ({ heading, paragraph, images }) => {
+
+    const paragraphs = paragraph ? paragraph.split('\n\n').filter(p => p.trim()) : [];
+
     return (
         <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
             {/* Image carousel at the top */}
             <ImageCarousel images={images} />
 
-            {/* Event description */}
-            <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-                <span className="font-bold text-neutral-700 dark:text-neutral-200">
-                    {heading}
-                </span>{" "}
-                {paragraph}
-            </p>
+            {/* Event heading */}
+            <h3 className="font-bold text-neutral-700 dark:text-neutral-200 text-lg md:text-3xl font-sans max-w-3xl mx-auto mb-4">
+                {heading}
+            </h3>
+
+            {/* Event description with spaced paragraphs */}
+            <div className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto space-y-4">
+                {paragraphs.length > 0 ? (
+                    paragraphs.map((para, index) => (
+                        <p key={index} className="leading-relaxed">
+                            {para.trim()}
+                        </p>
+                    ))
+                ) : (
+                    <p className="leading-relaxed">{paragraph}</p>
+                )}
+            </div>
         </div>
     );
+};
+
+const formatEventDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
 };
 
 export function UpcomingEventsCarousel() {
@@ -82,7 +104,7 @@ export function UpcomingEventsCarousel() {
 
     const sortedData = upcomingEvents
         .map((upcomingEvent) => ({
-            category: upcomingEvent.eventCity,
+            category: `${upcomingEvent.eventCity} | ${formatEventDate(upcomingEvent.eventDate)}`,
             title: upcomingEvent.eventTitle,
             src: upcomingEvent.eventImages[0],
             date: upcomingEvent.eventDate,
