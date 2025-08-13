@@ -48,7 +48,7 @@ export default function Home() {
             <RedirectButton></RedirectButton>
             <button onClick={() => {
               AboutUsRef.current?.scrollIntoView({
-                behaviour: 'smooth'
+                behavior: 'smooth'
               })
             }} className="btn btn-lg btn-outline btn-neutral rounded-full">
               Learn More

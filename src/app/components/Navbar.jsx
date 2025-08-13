@@ -1,58 +1,241 @@
-'use client'
-import logo from "../../../public/upahaarlogo.png"
+import { BookOpenIcon, InfoIcon, LifeBuoyIcon } from "lucide-react"
 import Image from "next/image"
-import { useRouter } from "next/navigation";
-import { Button } from "flowbite-react";
-import { useRef } from "react";
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import {
+    NavigationMenu,
+    NavigationMenuContent,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu"
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "@/components/ui/popover"
 
-export default function Navbar({ volunteerRef, AboutUsRef }) {
-    const navigate = useRouter()
+// Navigation links array to be used in both desktop and mobile menus
+const navigationLinks = [
+    { href: "/", label: "Home" },
+    { href: "/stories", label: "Our stories" },
+    {
+        label: "Events",
+        submenu: true,
+        type: "simple",
+        items: [
+            { href: "/previous-events", label: "Previous Events" },
+            { href: "/upcoming-events", label: "Upcoming Events" }
+        ],
+    },
+    {
+        label: "FAQs",
+        submenu: true,
+        type: "icon",
+        items: [
+            { href: "/solid-organ-donation-registration-faq", label: "Organ donation registration FAQ", icon: "BookOpenIcon" },
+            { href: "/stem-cell-donation-faq", label: "Stem cell donation FAQ", icon: "BookOpenIcon" },
+        ],
+    },
+]
 
+export default function Component() {
     return (
-        <div className="navbar bg-blue-100 shadow-sm relative z-50">
-            <div className="flex-1">
-                <Image
-                    className=" hover:cursor-pointer"
-                    onClick={() => navigate.push('/')}
-                    src={logo}
-                    height={50}
-                />
+        <header className="border-b px-4 md:px-6 bg-blue-200 text-black">
+            <div className=" flex h-16 items-center justify-between gap-4">
+                {/* Left side */}
+                <div className="flex items-center gap-2">
+                    {/* Mobile menu trigger */}
+                    <Popover>
+                        <PopoverTrigger asChild>
+                            <Button
+                                className="group size-8 md:hidden"
+                                variant="ghost"
+                                size="icon"
+                            >
+                                <svg
+                                    className="pointer-events-none"
+                                    width={16}
+                                    height={16}
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M4 12L20 12"
+                                        className="origin-center -translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-x-0 group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[315deg]"
+                                    />
+                                    <path
+                                        d="M4 12H20"
+                                        className="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-aria-expanded:rotate-45"
+                                    />
+                                    <path
+                                        d="M4 12H20"
+                                        className="origin-center translate-y-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-expanded:translate-y-0 group-aria-expanded:rotate-[135deg]"
+                                    />
+                                </svg>
+                            </Button>
+                        </PopoverTrigger>
+                        <PopoverContent align="start" className="w-64 p-1 md:hidden">
+                            <NavigationMenu className="max-w-none *:w-full">
+                                <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
+                                    {navigationLinks.map((link, index) => (
+                                        <NavigationMenuItem key={index} className="w-full">
+                                            {link.submenu ? (
+                                                <>
+                                                    <div className="text-slate-400 px-2 py-1.5 text-xs font-medium">
+                                                        {link.label}
+                                                    </div>
+                                                    <ul>
+                                                        {link.items.map((item, itemIndex) => (
+                                                            <li key={itemIndex}>
+                                                                <NavigationMenuLink
+                                                                    href={item.href}
+                                                                    className="py-1.5"
+                                                                >
+                                                                    {item.label}
+                                                                </NavigationMenuLink>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </>
+                                            ) : (
+                                                <NavigationMenuLink href={link.href} className="py-1.5">
+                                                    {link.label}
+                                                </NavigationMenuLink>
+                                            )}
+                                            {/* Add separator between different types of items */}
+                                            {index < navigationLinks.length - 1 &&
+                                                // Show separator if:
+                                                // 1. One is submenu and one is simple link OR
+                                                // 2. Both are submenus but with different types
+                                                ((!link.submenu &&
+                                                    navigationLinks[index + 1].submenu) ||
+                                                    (link.submenu &&
+                                                        !navigationLinks[index + 1].submenu) ||
+                                                    (link.submenu &&
+                                                        navigationLinks[index + 1].submenu &&
+                                                        link.type !== navigationLinks[index + 1].type)) && (
+                                                    <div
+                                                        role="separator"
+                                                        aria-orientation="horizontal"
+                                                        className="bg-border -mx-1 my-1 h-px w-full"
+                                                    />
+                                                )}
+                                        </NavigationMenuItem>
+                                    ))}
+                                </NavigationMenuList>
+                            </NavigationMenu>
+                        </PopoverContent>
+                    </Popover>
+                    {/* Main nav */}
+                    <div className="flex items-center gap-6">
+                        <a href="/" className="text-primary hover:text-primary/90">
+                            <Image src={"https://res.cloudinary.com/dyollfze8/image/upload/v1755039585/upahaarlogo_ytqvny.png"} height={50} width={75} />
+                        </a>
+                        {/* Navigation menu */}
+                        <NavigationMenu viewport={false} className="max-md:hidden">
+                            <NavigationMenuList className="gap-2">
+                                {navigationLinks.map((link, index) => (
+                                    <NavigationMenuItem key={index}>
+                                        {link.submenu ? (
+                                            <>
+                                                <NavigationMenuTrigger className="text-black hover:text-primary hover:cursor-pointer bg-transparent px-2 py-1.5 font-medium *:[svg]:-me-0.5 *:[svg]:size-3.5">
+                                                    {link.label}
+                                                </NavigationMenuTrigger>
+                                                <NavigationMenuContent className="data-[motion=from-end]:slide-in-from-right-16! data-[motion=from-start]:slide-in-from-left-16! data-[motion=to-end]:slide-out-to-right-16! data-[motion=to-start]:slide-out-to-left-16! z-50 p-1">
+                                                    <ul
+                                                        className={cn(
+                                                            link.type === "description"
+                                                                ? "min-w-64"
+                                                                : "min-w-48"
+                                                        )}
+                                                    >
+                                                        {link.items.map((item, itemIndex) => (
+                                                            <li key={itemIndex}>
+                                                                <NavigationMenuLink
+                                                                    href={item.href}
+                                                                    className="py-1.5"
+                                                                >
+                                                                    {/* Display icon if present */}
+                                                                    {link.type === "icon" && "icon" in item && (
+                                                                        <div className="flex items-center gap-2">
+                                                                            {item.icon === "BookOpenIcon" && (
+                                                                                <BookOpenIcon
+                                                                                    size={16}
+                                                                                    className="text-foreground opacity-60"
+                                                                                    aria-hidden="true"
+                                                                                />
+                                                                            )}
+                                                                            {item.icon === "LifeBuoyIcon" && (
+                                                                                <LifeBuoyIcon
+                                                                                    size={16}
+                                                                                    className="text-foreground opacity-60"
+                                                                                    aria-hidden="true"
+                                                                                />
+                                                                            )}
+                                                                            {item.icon === "InfoIcon" && (
+                                                                                <InfoIcon
+                                                                                    size={16}
+                                                                                    className="text-foreground opacity-60"
+                                                                                    aria-hidden="true"
+                                                                                />
+                                                                            )}
+                                                                            <span>{item.label}</span>
+                                                                        </div>
+                                                                    )}
+
+                                                                    {/* Display label with description if present */}
+                                                                    {link.type === "description" &&
+                                                                        "description" in item ? (
+                                                                        <div className="space-y-1">
+                                                                            <div className="font-medium">
+                                                                                {item.label}
+                                                                            </div>
+                                                                            <p className="text-muted-foreground line-clamp-2 text-xs">
+                                                                                {item.description}
+                                                                            </p>
+                                                                        </div>
+                                                                    ) : (
+                                                                        // Display simple label if not icon or description type
+                                                                        !link.type ||
+                                                                        (link.type !== "icon" &&
+                                                                            link.type !== "description" && (
+                                                                                <span>{item.label}</span>
+                                                                            ))
+                                                                    )}
+                                                                </NavigationMenuLink>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </NavigationMenuContent>
+                                            </>
+                                        ) : (
+                                            <NavigationMenuLink
+                                                href={link.href}
+                                                className="text-black hover:text-primary py-1.5 font-medium"
+                                            >
+                                                {link.label}
+                                            </NavigationMenuLink>
+                                        )}
+                                    </NavigationMenuItem>
+                                ))}
+                            </NavigationMenuList>
+                        </NavigationMenu>
+                    </div>
+                </div>
+                {/* Right side */}
+                <div className="flex items-center gap-2">
+                    <Button asChild size="sm" className="text-sm bg-blue-400">
+                        <a href="https://forms.gle/fi1V9WYZQWP8B8Rm6">Register as a Volunteer</a>
+                    </Button>
+                </div>
             </div>
-            <div className="flex-none">
-                <ul className="menu menu-horizontal">
-                    <li>
-                        <details className="relative z-50">
-                            <summary className="text-black">Events</summary>
-                            <ul className="bg-white rounded-t-none p-2 shadow-lg z-50 absolute">
-                                <li onClick={() => navigate.push('/previous-events')}><a className="text-black">Previous events</a></li>
-                                <li onClick={() => navigate.push('/upcoming-events')}><a className="text-black">Upcoming events</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li onClick={() => navigate.push('/stories')}>
-                        <a className="text-black">Our stories</a>
-                    </li>
-                    <li>
-                        <details className="relative z-50">
-                            <summary className="text-black">FAQs</summary>
-                            <ul className="bg-white rounded-t-none p-2 shadow-lg z-50 absolute">
-                                <li onClick={() => navigate.push('/solid-organ-donation-registration-faq')}>
-                                    <a className="text-black">Solid organ donor registration FAQ</a>
-                                </li>
-                                <li onClick={() => navigate.push('/solid-organ-donation-faq')}>
-                                    <a className="text-black">Stem cell donation FAQ</a>
-                                </li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li><a onClick={() => navigate.push('/contact-us')} className="text-black">Contact us</a></li>
-                    <li className="pl-5">
-                        <Button onClick={() => navigate.push('https://forms.gle/fi1V9WYZQWP8B8Rm6')} className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white hover:bg-gradient-to-br focus:ring-blue-300 dark:focus:ring-blue-800">
-                            Volunteer Registration
-                        </Button>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        </header>
     )
 }
