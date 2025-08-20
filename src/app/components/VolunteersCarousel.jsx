@@ -103,7 +103,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                             }}
                         >
                             {volunteers.map((volunteer, index) => (
-                                <div key={index} className="w-full flex-shrink-0 px-30">
+                                <div key={index} className="w-full flex-shrink-0 px-20">
                                     <div className="bg-white rounded-2xl py-2 shadow-lg max-w-sm mx-auto">
                                         <div className="relative w-40 h-40 mx-auto mb-4 overflow-hidden rounded-xl">
                                             <Image

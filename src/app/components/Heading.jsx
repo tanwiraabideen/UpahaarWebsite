@@ -5,7 +5,7 @@ const playfair = Playfair_Display({
     weight: ['400', '700'], // or just '700' if it's a heading
 });
 export default function Heading() {
-    return (<h1 className={`mt-12 text-8xl md:text-7xl lg:text-8xl font-bold text-slate-900 ml-7 ${playfair.className}`}>
+    return (<h1 className={`mt-12 text-7xl md:text-7xl lg:text-8xl font-bold text-slate-900 ml-7 ${playfair.className}`}>
         Live Life, <br />
         <span className="relative inline-block my-8">
             {/* Background highlight */}
