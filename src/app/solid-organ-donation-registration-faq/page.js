@@ -18,14 +18,8 @@ export default function Home() {
     return (
         <div>
             <Navbar volunteerRef={volunteerRef} AboutUsRef={AboutUsRef}></Navbar>
-            <div className="flex flex-col items-center bg-gradient-to-br from-[#d4eaff] via-[#a3d8ff] to-[#6bbefb]">
-                <BlurText
-                    text="Frequently asked questions about organ donation registration"
-                    delay={150}
-                    animateBy="words"
-                    direction="top"
-                    className={`text-4xl ${playfair.className} text-black pt-18`}
-                />
+            <div className="flex flex-col pt-8 w-full justify-center items-center bg-gradient-to-br from-[#d4eaff] via-[#a3d8ff] to-[#6bbefb]">
+                <h1 className={`text-center text-3xl ${playfair.className} text-black `}>Frequently asked questions about organ donation registration</h1>
                 <OrganDonationFAQ></OrganDonationFAQ>
             </div>
         </div>

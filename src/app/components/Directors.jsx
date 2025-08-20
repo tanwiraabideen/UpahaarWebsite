@@ -39,12 +39,12 @@ export default function Directors() {
                                 <div
                                     key={director.trusteeId}
                                     onClick={() => setSelectedDirector(director)}
-                                    className="flex-shrink-0 w-72 mt-7 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group snap-center transform hover:scale-105"
+                                    className="flex-shrink-0 w-52 md:w-72 mt-7 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group snap-center transform hover:scale-105"
                                 >
                                     <div className="p-6">
                                         {/* Profile Image */}
                                         <div className="relative mb-4">
-                                            <div className="w-24 h-24 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-purple-500 p-1">
+                                            <div className="w-16 h-16 md:h-24 md:w-24 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-purple-500 p-1">
                                                 <img
                                                     src={director.image}
                                                     alt={director.name}
@@ -54,12 +54,12 @@ export default function Directors() {
                                         </div>
 
                                         {/* Name */}
-                                        <h3 className="text-xl font-semibold text-gray-800 text-center mb-3 group-hover:text-blue-600 transition-colors">
+                                        <h3 className="text-lg md:text-xl font-semibold text-gray-800 text-center mb-3 group-hover:text-blue-600 transition-colors">
                                             {director.name}
                                         </h3>
 
                                         {/* Truncated Description */}
-                                        <p className="text-gray-600 text-sm text-center line-clamp-3">
+                                        <p className="text-gray-600 text-xs md:text-sm text-center line-clamp-3">
                                             {director.description.length > 100
                                                 ? `${director.description.substring(0, 100)}...`
                                                 : director.description

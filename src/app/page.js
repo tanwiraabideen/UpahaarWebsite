@@ -41,21 +41,24 @@ export default function Home() {
 
 
       {/* Hero Section */}
-      <div className="relative z-0 min-h-screen grid grid-rows-1 grid-cols-2 place-items-center pt-20 bg-gradient-to-br from-[#d4eaff] via-[#a3d8ff] to-[#6bbefb]">
+      <div className="relative z-0 grid-rows-2  grid md:grid-cols-2 place-items-center pt-10 md:pt-20 md:pb-10 lg:pb-20 lg:pt-30 bg-gradient-to-br from-[#d4eaff] via-[#a3d8ff] to-[#6bbefb]">
         <div className="grid grid-rows-2 place-items-center">
           <Heading></Heading>
-          <div className="flex justify-center mb-15 space-x-15 w-full">
+          <div className="flex justify-center lg:mb-15 space-x-8 md:space-x-7 lg:space-x-15 w-full">
             <RedirectButton></RedirectButton>
             <button onClick={() => {
               AboutUsRef.current?.scrollIntoView({
                 behavior: 'smooth'
               })
-            }} className="btn btn-lg btn-outline btn-neutral rounded-full">
+            }} className="text-sm md:text-sm lg:text-xl btn btn-lg btn-outline btn-neutral rounded-full">
               Learn More
             </button>
           </div>
         </div>
-        <Image className="mb-9" src={organDonationImg} height={500}></Image>
+        <div className="hidden md:block md:mb-40 md:h-80 lg:h-96">
+          <Image src={organDonationImg}></Image>
+        </div>
+
       </div>
       {/* LightRays as background overlay - only for hero section */}
       <div style={{
@@ -91,7 +94,7 @@ export default function Home() {
           animateBy="words"
           direction="top"
           onAnimationComplete={handleAnimationComplete}
-          className={`text-5xl ${playfair.className} justify-center pt-16 `}
+          className={`text-5xl ${playfair.className} justify-center pt-26 `}
         />
 
         <Volunteering ref={volunteerRef}></Volunteering>

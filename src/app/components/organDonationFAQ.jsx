@@ -66,7 +66,7 @@ const FAQDisclosure = () => {
             </div>
 
             <div className="mt-12 text-center">
-                <div className="bg-blue-50 rounded-lg p-6">
+                <div className="bg-blue-200 rounded-lg p-6">
                     <h3 className="text-lg font-semibold text-blue-900 mb-2">
                         Still have questions?
                     </h3>

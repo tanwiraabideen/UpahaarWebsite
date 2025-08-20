@@ -124,7 +124,7 @@ export function UpcomingEventsCarousel() {
 
     return (
         <div className="w-full bg-slate-900 h-full py-20">
-            <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+            <h2 className="max-w-7xl pl-4 mx-auto text-center md:text-left text-3xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
                 Upahaar's upcoming events.
             </h2>
 

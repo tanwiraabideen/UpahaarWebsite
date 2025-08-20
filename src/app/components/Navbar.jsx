@@ -38,6 +38,7 @@ const navigationLinks = [
             { href: "/stem-cell-donation-faq", label: "Stem cell donation FAQ", icon: "BookOpenIcon" },
         ],
     },
+    { href: "/contact-us", label: "Contact Us" }
 ]
 
 export default function Component() {

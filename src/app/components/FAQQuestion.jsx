@@ -6,9 +6,9 @@ const SingleFAQQuestion = ({ question, children }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm">
+        <div className="w-full rounded-lg border border-gray-900 shadow-sm">
             <button
-                className="flex w-full items-center justify-between px-6 py-4 text-left hover:bg-gray-50 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset transition-colors duration-200"
+                className="flex w-full items-center justify-between px-6 bg-transparent hover:bg-black/10 hover:backdrop-blur-sm py-4 text-left  hover:cursor-pointer focus:outline-none transition-colors duration-200"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 <span className="text-lg font-medium text-gray-900 pr-4">

@@ -105,7 +105,7 @@ const AceternityBentoStories = () => {
                                 title={item.title}
                                 description={item.description}
                                 header={item.header}
-                                className={`${item.className} h-full group-hover:scale-[1.02] transition-transform duration-300`}
+                                className={`${item.className} h-70 group-hover:scale-[1.02] transition-transform duration-300`}
                             />
                         </div>
                     ))}
