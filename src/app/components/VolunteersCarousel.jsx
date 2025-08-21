@@ -7,25 +7,11 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
     const carouselRef = useRef(null);
     const autoPlayRef = useRef(null);
 
-    // Create extended array to ensure at least 3 cards are always visible
-    const getExtendedVolunteers = () => {
-        if (volunteers.length === 0) return [];
-        if (volunteers.length >= 3) return volunteers;
-
-        // If less than 3 volunteers, duplicate them to fill at least 3 slots
-        const extended = [...volunteers];
-        while (extended.length < 3) {
-            extended.push(...volunteers.slice(0, Math.min(volunteers.length, 3 - extended.length)));
-        }
-        return extended;
-    };
-
-    const extendedVolunteers = getExtendedVolunteers();
-    const maxIndex = Math.max(0, extendedVolunteers.length - 3);
+    const maxIndex = Math.max(0, volunteers.length - 3);
 
     // Auto-scroll functionality
     useEffect(() => {
-        if (isAutoPlaying && extendedVolunteers.length > 3) {
+        if (isAutoPlaying && volunteers.length > 3) {
             autoPlayRef.current = setInterval(() => {
                 setCurrentIndex((prevIndex) =>
                     prevIndex >= maxIndex ? 0 : prevIndex + 1
@@ -34,7 +20,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
 
             return () => clearInterval(autoPlayRef.current);
         }
-    }, [isAutoPlaying, extendedVolunteers.length, maxIndex]);
+    }, [isAutoPlaying, volunteers.length, maxIndex]);
 
     // Pause auto-play on hover
     const handleMouseEnter = () => setIsAutoPlaying(false);
@@ -77,16 +63,24 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
-                    {/* Desktop Layout - Always show 3 cards */}
+                    {/* Desktop Layout */}
                     <div className="hidden md:block">
                         <div
-                            className="flex transition-transform duration-500 ease-out"
+                            className={`flex transition-transform duration-500 ease-out ${volunteers.length === 1 ? "justify-center" : ""
+                                }`}
                             style={{
-                                transform: `translateX(-${currentIndex * (100 / 3)}%)`
+                                transform:
+                                    volunteers.length > 1
+                                        ? `translateX(-${currentIndex * (100 / 3)}%)`
+                                        : "none",
                             }}
                         >
-                            {extendedVolunteers.map((volunteer, index) => (
-                                <div key={`${volunteer.fullName}-${index}`} className="w-1/3 flex-shrink-0 px-4">
+                            {volunteers.map((volunteer, index) => (
+                                <div
+                                    key={`${volunteer.fullName}-${index}`}
+                                    className={`${volunteers.length === 1 ? "w-1/3" : "w-1/3"
+                                        } flex-shrink-0 px-4`}
+                                >
                                     <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                                         <div className="relative w-48 h-48 mx-auto mb-6 overflow-hidden rounded-xl">
                                             <Image
@@ -111,9 +105,13 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                     {/* Mobile Layout - Single card */}
                     <div className="md:hidden">
                         <div
-                            className="flex transition-transform duration-500 ease-out"
+                            className={`flex transition-transform duration-500 ease-out ${volunteers.length === 1 ? "justify-center" : ""
+                                }`}
                             style={{
-                                transform: `translateX(-${currentIndex * 100}%)`
+                                transform:
+                                    volunteers.length > 1
+                                        ? `translateX(-${currentIndex * 100}%)`
+                                        : "none",
                             }}
                         >
                             {volunteers.map((volunteer, index) => (
@@ -138,10 +136,11 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                             ))}
                         </div>
                     </div>
+
                 </div>
 
-                {/* Navigation Arrows - Only show if there are more than 3 volunteers */}
-                {extendedVolunteers.length > 3 && (
+                {/* Navigation Arrows - Only show if more than 3 volunteers */}
+                {volunteers.length > 3 && (
                     <div className="flex justify-center items-center mt-8 gap-4">
                         <button
                             onClick={prevSlide}
@@ -153,7 +152,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                             </svg>
                         </button>
 
-                        {/* Dot Indicators - Show dots based on navigation positions */}
+                        {/* Dot Indicators */}
                         <div className="flex space-x-2">
                             {Array.from({ length: maxIndex + 1 }, (_, index) => (
                                 <button
@@ -180,8 +179,8 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                     </div>
                 )}
 
-                {/* Auto-play indicator - Only show if carousel is functional */}
-                {extendedVolunteers.length > 3 && (
+                {/* Auto-play indicator */}
+                {volunteers.length > 3 && (
                     <div className="flex justify-center mt-4">
                         <div className="text-white text-sm opacity-60">
                             {isAutoPlaying ? ' Hover to pause' : ' Auto-play paused'}

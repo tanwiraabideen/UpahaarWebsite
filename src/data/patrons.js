@@ -1,14 +1,8 @@
 export const patrons = [
     {
         trusteeId: "24grwgh",
-        name: "Saudabi Valappil",
-        image: "https://res.cloudinary.com/dyollfze8/image/upload/v1755016889/Screenshot_2025-08-04_at_4.49.48_PM_svczjd.png",
-        description: "Saudabi Valappil is dedicated to advancing stem cell donation awareness and has worked tirelessly to build partnerships with medical institutions. Her background in medical research drives our scientific initiatives."
+        name: "Father Davis Chiramel",
+        image: "https://res.cloudinary.com/dyollfze8/image/upload/v1755795092/father_davis_bqezzm.jpg",
+        description: "Father Davis Chiramel, widely known as the Kidney Priest of India, is a respected social reformer and health activist who pioneered organ donation awareness. By donating his kidney to a fellow citizen, he inspired thousands. He has been instrumental in the inception and growth of Upahaar, serving as its Patron."
     },
-    {
-        trusteeId: "gse5y53",
-        name: "Zainul Aabideen",
-        image: "https://res.cloudinary.com/dyollfze8/image/upload/v1755016888/Screenshot_2025-08-04_at_4.49.27_PM_ncqtzh.png",
-        description: "Zainul Aabideen is a passionate advocate for organ donation and has been instrumental in establishing Upahaar's mission. With years of experience in healthcare administration, he brings valuable leadership to our organization."
-    }
 ];

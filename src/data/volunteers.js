@@ -1,21 +1,8 @@
-import ZainulAabideen from "../../public/DirectorsImages/ZainulAabideen.png"
-import SaudabiValappil from "../../public/DirectorsImages/SaudabiValappil.png"
+
 
 export const volunteers = [
     {
-        image: ZainulAabideen.src,
-        fullName: "Zainul Aabideen"
-    },
-    {
-        image: SaudabiValappil.src,
-        fullName: "Saudabi Valappil"
-    },
-    {
-        image: ZainulAabideen.src,
-        fullName: "Zainul Aabideen"
-    },
-    {
-        image: SaudabiValappil.src,
-        fullName: "Saudabi Valappil"
+        image: "https://res.cloudinary.com/dyollfze8/image/upload/v1755808738/mehnaz_v5wz5n.jpg",
+        fullName: "Mehnaz Aabideen"
     }
 ]
