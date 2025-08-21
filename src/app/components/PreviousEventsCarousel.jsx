@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { getPreviousEvents } from "../actions/actions";
 import LoadingSpinner from "./LoadingSpinner";
+import { previousEvents } from "@/data/previousEvents";
 
 // Mini carousel inside the card for event images
 const ImageCarousel = ({ images }) => {
@@ -84,22 +85,7 @@ const formatEventDate = (dateString) => {
 };
 
 export function PreviousEventsCarousel() {
-    const [previousEvents, setPreviousEvents] = useState([]);
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const fetchPreviousEvents = async () => {
-            try {
-                const tempPreviousEvents = await getPreviousEvents();
-                setPreviousEvents(tempPreviousEvents);
-            } catch (err) {
-                console.error("Error fetching previous events:", err);
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchPreviousEvents();
-    }, []);
 
     const sortedData = previousEvents
         .map((previousEvent) => ({
@@ -126,9 +112,7 @@ export function PreviousEventsCarousel() {
             <h2 className="max-w-7xl text-center md:text-left pl-4 mx-auto text-3xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
                 Upahaar's previous events.
             </h2>
-            {loading ? (
-                <LoadingSpinner></LoadingSpinner>
-            ) : previousEvents.length === 0 ? (
+            {previousEvents.length === 0 ? (
                 <p className="text-center text-neutral-500 mt-10">
                     No previous events found.
                 </p>

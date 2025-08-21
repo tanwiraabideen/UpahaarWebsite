@@ -4,25 +4,16 @@ import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BeatLoader } from "react-spinners"
 import Image from 'next/image';
-import { getStories } from '../actions/actions.js';
+import { stories } from '@/data/stories.js';
 import LoadingSpinner from './LoadingSpinner.jsx';
 
 const AceternityBentoStories = () => {
 
-    const [isLoading, setIsLoading] = useState(true)
-    const [stories, setStories] = useState([])
     const [expandedStory, setExpandedStory] = useState(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-    useEffect(() => {
-        const fetchStories = async () => {
-            const tempStories = await getStories()
-            setStories(tempStories)
-            setIsLoading(false)
-            console.log(stories)
-        }
-        fetchStories()
-    }, [])
+
+
 
     const openStory = (story, index) => {
         setExpandedStory({ ...story, index });
@@ -90,26 +81,22 @@ const AceternityBentoStories = () => {
 
     return (
         <div className="max-w-7xl mx-auto p-6">
-            {isLoading ?
-                <div>
-                    <LoadingSpinner></LoadingSpinner>
-                </div>
-                : <BentoGrid className="max-w-7xl mx-auto md:auto-rows-[18rem]">
-                    {bentoItems.map((item, i) => (
-                        <div
-                            key={i}
-                            onClick={() => openStory(item.story, item.index)}
-                            className="cursor-pointer hover:shadow-xl transition-all duration-300 group"
-                        >
-                            <BentoGridItem
-                                title={item.title}
-                                description={item.description}
-                                header={item.header}
-                                className={`${item.className} h-70 group-hover:scale-[1.02] transition-transform duration-300`}
-                            />
-                        </div>
-                    ))}
-                </BentoGrid>}
+            <BentoGrid className="max-w-7xl mx-auto md:auto-rows-[18rem]">
+                {bentoItems.map((item, i) => (
+                    <div
+                        key={i}
+                        onClick={() => openStory(item.story, item.index)}
+                        className="cursor-pointer hover:shadow-xl transition-all duration-300 group"
+                    >
+                        <BentoGridItem
+                            title={item.title}
+                            description={item.description}
+                            header={item.header}
+                            className={`${item.className} h-70 group-hover:scale-[1.02] transition-transform duration-300`}
+                        />
+                    </div>
+                ))}
+            </BentoGrid>
 
             {/* Expanded Story Modal */}
             {expandedStory && (

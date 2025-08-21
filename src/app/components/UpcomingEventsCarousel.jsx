@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { getUpcomingEvents } from "../actions/actions";
 import LoadingSpinner from "./LoadingSpinner";
+import { upcomingEvents } from "@/data/futureEvents";
 
 // Mini carousel inside the card for event images
 const ImageCarousel = ({ images }) => {
@@ -84,23 +85,7 @@ const formatEventDate = (dateString) => {
 };
 
 export function UpcomingEventsCarousel() {
-    const [upcomingEvents, setUpcomingEvents] = useState([]);
-    const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const fetchUpcomingEvents = async () => {
-            try {
-                const tempUpcomingEvents = await getUpcomingEvents();
-                setUpcomingEvents(tempUpcomingEvents);
-            } catch (err) {
-                console.error("Error fetching previous events:", err);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchUpcomingEvents();
-    }, []);
 
     const sortedData = upcomingEvents
         .map((upcomingEvent) => ({
@@ -128,9 +113,7 @@ export function UpcomingEventsCarousel() {
                 Upahaar's upcoming events.
             </h2>
 
-            {loading ? (
-                <LoadingSpinner></LoadingSpinner>
-            ) : upcomingEvents.length === 0 ? (
+            {upcomingEvents.length === 0 ? (
                 <p className="text-center text-neutral-500 mt-10">
                     No upcoming events found.
                 </p>
