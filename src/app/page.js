@@ -44,7 +44,7 @@ export default function Home() {
       <div className="min-h-fit w-full relative flex flex-col z-0 md:grid md:grid-cols-2 place-items-center pt-10 md:pt-20 md:pb-10 lg:pb-20 lg:pt-30 bg-gradient-to-br from-[#d4eaff] via-[#a3d8ff] to-[#6bbefb]">
         <div className="grid grid-rows-2 place-items-center">
           <Heading></Heading>
-          <div className="flex justify-center lg:mb-15 space-x-8 md:space-x-7 lg:space-x-15 w-full">
+          <div className="flex justify-center lg:mb-15 space-x-3 md:space-x-7 lg:space-x-15 w-full">
             <RedirectButton></RedirectButton>
             <button onClick={() => {
               AboutUsRef.current?.scrollIntoView({
