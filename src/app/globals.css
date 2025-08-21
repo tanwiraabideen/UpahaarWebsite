@@ -139,17 +139,7 @@
   animation: spin-reverse 1s linear infinite;
 }
 
-.bg-gradient-to-r,
-.bg-gradient-to-l,
-.bg-gradient-to-t,
-.bg-gradient-to-b,
-.bg-gradient-to-tr,
-.bg-gradient-to-tl,
-.bg-gradient-to-br,
-.bg-gradient-to-bl {
-  background-image: -webkit-linear-gradient(var(--tw-gradient-direction), var(--tw-gradient-stops));
-  background-image: linear-gradient(var(--tw-gradient-direction), var(--tw-gradient-stops));
-}
+
 
 /* iOS Safari gradient fix */
 @supports (-webkit-appearance: none) and (stroke-color: transparent) {
