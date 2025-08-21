@@ -13,7 +13,7 @@ export default function Heading() {
 
             {/* Foreground text with working padding */}
             <span className="relative inline-flex items-center  text-slate-900">
-                Give Life
+                Give Test
             </span>
         </span>
     </h1>
