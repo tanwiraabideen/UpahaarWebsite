@@ -18,6 +18,7 @@ import { Button } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import DarkVeil from "../../Animations/DarkVeil/DarkVeil";
 import Particles from "../../Animations/Particles/Particles";
+import Patrons from "./components/Patrons";
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -94,7 +95,7 @@ export default function Home() {
           animateBy="words"
           direction="top"
           onAnimationComplete={handleAnimationComplete}
-          className={`text-5xl ${playfair.className} justify-center pt-26 `}
+          className={`text-5xl text-slate-300 ${playfair.className} justify-center pt-26 `}
         />
 
         <Volunteering ref={volunteerRef}></Volunteering>
@@ -105,7 +106,7 @@ export default function Home() {
           animateBy="words"
           direction="top"
           onAnimationComplete={handleAnimationComplete}
-          className={`text-4xl ${playfair.className} justify-center `}
+          className={`text-4xl text-slate-300 ${playfair.className} justify-center `}
         />
         <VolunteerRoles></VolunteerRoles>
         <div className="flex justify-center items-center">
@@ -119,12 +120,21 @@ export default function Home() {
 
         <div className="flex flex-col space-y-8 mt-20 pb-20">
           <BlurText
+            text="Our Patrons"
+            delay={150}
+            animateBy="words"
+            direction="top"
+            onAnimationComplete={handleAnimationComplete}
+            className={`text-5xl text-slate-300 ${playfair.className} justify-center `}
+          />
+          <Patrons></Patrons>
+          <BlurText
             text="Our Trustees"
             delay={150}
             animateBy="words"
             direction="top"
             onAnimationComplete={handleAnimationComplete}
-            className={`text-5xl ${playfair.className} justify-center `}
+            className={`text-5xl text-slate-300 ${playfair.className} justify-center `}
           />
           <Directors></Directors>
           <BlurText
@@ -133,7 +143,7 @@ export default function Home() {
             animateBy="words"
             direction="top"
             onAnimationComplete={handleAnimationComplete}
-            className={`text-5xl ${playfair.className} justify-center `}
+            className={`text-5xl text-slate-300 ${playfair.className} justify-center `}
           />
           <Volunteers></Volunteers>
         </div>

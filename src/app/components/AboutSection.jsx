@@ -24,9 +24,9 @@ export default function AboutSection() {
                     animateBy="words"
                     direction="top"
                     onAnimationComplete={handleAnimationComplete}
-                    className={`text-5xl ${playfair.className}`}
+                    className={`text-5xl text-slate-300 ${playfair.className}`}
                 />
-                <p className="text-center mb:5 md:text-start px-10 text-lg">
+                <p className="text-center text-slate-300  mb:5 md:text-start px-10 text-lg">
                     Upahaar is a UK-based charity dedicated to saving lives through blood stem cell and organ donation, with a special focus on supporting the South Asian community.<br />
                     <br />
                     We raise awareness, run registration drives, and provide support to donor families. Through partnerships with organizations like Delete Blood Cancer UK and NHS Blood and Transplant, we help people join the donor registry and understand the life-saving impact of donation.<br />

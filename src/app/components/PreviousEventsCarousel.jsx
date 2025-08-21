@@ -109,7 +109,7 @@ export function PreviousEventsCarousel() {
 
     return (
         <div className="w-full h-full py-20 bg-slate-900">
-            <h2 className="max-w-7xl text-center md:text-left pl-4 mx-auto text-3xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+            <h2 className="max-w-7xl text-center md:text-left pl-4 mx-auto text-3xl md:text-5xl font-bold text-neutral-200 font-sans">
                 Upahaar's previous events.
             </h2>
             {previousEvents.length === 0 ? (
