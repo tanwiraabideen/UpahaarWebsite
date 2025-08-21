@@ -6,14 +6,14 @@ const playfair = Playfair_Display({
 });
 export default function Heading() {
     return (<h1 className={`mt-12 text-7xl md:text-7xl lg:text-8xl font-bold text-slate-900 ml-7 ${playfair.className}`}>
-        Live Test, <br />
+        Live Life, <br />
         <span className="relative inline-block my-8">
             {/* Background highlight */}
             <span className="absolute inset-0 bg-blue-500 -skew-y-3 rounded-md z-[-1] scale-110 "></span>
 
             {/* Foreground text with working padding */}
             <span className="relative inline-flex items-center  text-slate-900">
-                Give Test
+                Give Life
             </span>
         </span>
     </h1>
