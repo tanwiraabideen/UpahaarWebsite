@@ -6,8 +6,6 @@ import LoadingSpinner from "./LoadingSpinner";
 export default function Directors() {
     const [selectedDirector, setSelectedDirector] = useState(null);
 
-
-
     return (
         <>
             <div className="w-full pb-12 px-4 md:px-6 lg:px-8">
@@ -19,8 +17,8 @@ export default function Directors() {
                         </p>
                     </div>
 
-                    {/* Desktop Layout - Grid */}
-                    <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
+                    {/* Desktop Layout - Centered Flex */}
+                    <div className="hidden md:flex md:flex-wrap md:justify-center md:items-center gap-6">
                         {directors.map((director) => (
                             <div
                                 key={director.trusteeId}
@@ -147,7 +145,6 @@ export default function Directors() {
                     </div>
                 )}
             </div>
-
         </>
     );
 }

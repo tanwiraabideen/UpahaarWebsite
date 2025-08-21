@@ -48,7 +48,7 @@ export default function VolunteerRoles() {
     return (
         <div className="mt-24 px-7 pb-28">
             {/* Desktop Layout - All cards in a row */}
-            <div className="hidden lg:flex gap-6 items-stretch">
+            <div className="hidden lg:flex lg:justify-center gap-6 items-stretch">
                 {roles.map((role, index) => (
                     <Card key={index} className="flex-1 hover:shadow-lg transition-shadow bg-gradient-to-br from-[#d4e4ff] via-[#57d0f8] to-[#48bfda]">
                         <CardHeader className="text-black">

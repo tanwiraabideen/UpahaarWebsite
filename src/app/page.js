@@ -35,13 +35,13 @@ export default function Home() {
   const navigate = useRouter()
 
   return (
-    <div className="min-h-screen w-full relative">
+    <div className="w-full relative">
       <Navbar volunteerRef={volunteerRef} AboutUsRef={AboutUsRef}></Navbar>
 
 
 
       {/* Hero Section */}
-      <div className="relative z-0 grid-rows-2  grid md:grid-cols-2 place-items-center pt-10 md:pt-20 md:pb-10 lg:pb-20 lg:pt-30 bg-gradient-to-br from-[#d4eaff] via-[#a3d8ff] to-[#6bbefb]">
+      <div className="min-h-fit w-full relative flex flex-col z-0 md:grid md:grid-cols-2 place-items-center pt-10 md:pt-20 md:pb-10 lg:pb-20 lg:pt-30 bg-gradient-to-br from-[#d4eaff] via-[#a3d8ff] to-[#6bbefb]">
         <div className="grid grid-rows-2 place-items-center">
           <Heading></Heading>
           <div className="flex justify-center lg:mb-15 space-x-8 md:space-x-7 lg:space-x-15 w-full">
@@ -109,7 +109,7 @@ export default function Home() {
         />
         <VolunteerRoles></VolunteerRoles>
         <div className="flex justify-center items-center">
-          <Button onClick={() => navigate.push('https://forms.gle/fi1V9WYZQWP8B8Rm6')} className="w-60 text-lg h-14 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white hover:cursor-pointer hover:bg-gradient-to-br focus:ring-blue-300 dark:focus:ring-blue-800">
+          <Button onClick={() => navigate.push('https://forms.gle/fi1V9WYZQWP8B8Rm6')} className="w-60 text-lg h-14 bg-blue-700 text-white hover:cursor-pointer hover:bg-gradient-to-br focus:ring-blue-300 dark:focus:ring-blue-800">
             Register as a volunteer
           </Button>
         </div>
