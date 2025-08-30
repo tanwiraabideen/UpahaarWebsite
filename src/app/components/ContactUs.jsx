@@ -60,16 +60,7 @@ export default function ContactUs() {
                                 </div>
                             </div>
 
-                            {/* Hours */}
-                            <div className="flex items-center space-x-4">
-                                <div className="bg-blue-100 p-3 rounded-full">
-                                    <Clock className="w-6 h-6 text-blue-600" />
-                                </div>
-                                <div>
-                                    <p className="text-xl font-semibold text-gray-900">Monday - Friday:</p>
-                                    <p className="text-lg text-gray-600">8:00 am - 5:00 pm</p>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 

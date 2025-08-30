@@ -142,14 +142,14 @@ const AceternityBentoStories = () => {
                                                     disabled={currentImageIndex === 0}
                                                     className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-2 transition-all"
                                                 >
-                                                    <ChevronLeft size={20} />
+                                                    <ChevronLeft size={20} color='black' />
                                                 </button>
                                                 <button
                                                     onClick={nextImage}
                                                     disabled={currentImageIndex === expandedStory.images.length - 1}
                                                     className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed rounded-full p-2 transition-all"
                                                 >
-                                                    <ChevronRight size={20} />
+                                                    <ChevronRight size={20} color='black' />
                                                 </button>
                                             </>
                                         )}

@@ -23,10 +23,7 @@ export function FooterComponent() {
                 <div className="w-full sm:flex sm:items-center sm:justify-between">
                     <FooterCopyright href="#" by="Upahaar" year={2025} />
                     <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-                        <FooterIcon href="#" icon={BsFacebook} />
-                        <FooterIcon href="#" icon={BsInstagram} />
-                        <FooterIcon href="#" icon={BsTwitter} />
-                        <FooterIcon href="#" icon={BsYoutube} />
+                        <FooterIcon href="https://www.facebook.com/UpahaarUK/" icon={BsFacebook} />
                     </div>
                 </div>
             </div>
