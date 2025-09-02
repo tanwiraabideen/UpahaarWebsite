@@ -19,7 +19,8 @@ export default function ContactUs() {
 
                         <div className="space-y-6">
                             {/* Phone */}
-                            <div className="flex items-center space-x-4">
+
+                            {/*<div className="flex items-center space-x-4">
                                 <div className="bg-blue-100 p-3 rounded-full">
                                     <Phone className="w-6 h-6 text-blue-600" />
                                 </div>
@@ -31,7 +32,7 @@ export default function ContactUs() {
                                         +971-XXX-XXXX
                                     </a>
                                 </div>
-                            </div>
+                            </div>*/}
 
                             {/* Email */}
                             <div className="flex items-center space-x-4">
@@ -43,7 +44,7 @@ export default function ContactUs() {
                                         href="mailto:contact@upahaar.org"
                                         className="text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors"
                                     >
-                                        contact@upahaar.org
+                                        upahaar2014@gmail.com
                                     </a>
                                 </div>
                             </div>
@@ -55,7 +56,7 @@ export default function ContactUs() {
                                 </div>
                                 <div>
                                     <p className="text-xl font-semibold text-gray-900">
-                                        Abu Dhabi, UAE
+                                        4 Melrose Crescent, Hale, WA158NN
                                     </p>
                                 </div>
                             </div>
