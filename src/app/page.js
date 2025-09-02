@@ -44,16 +44,10 @@ export default function Home() {
 
 
       {/* Hero Section */}
-      <div className="min-h-fit justify-center w-full relative flex flex-col z-0 md:grid md:grid-cols-2 place-items-center pt-10 md:pt-20 md:pb-10 lg:pb-20 bg-gradient-to-br from-[#d4eaff] via-[#a3d8ff] to-[#6bbefb]">
-        <div className="grid grid-rows-2 justify-center items-center">
-          <NewHeading></NewHeading>
-          <p className={`${playfair.className} text-slate-700 font-light lg:w-140 lg:pt-5 text-center text-sm lg:text-md px-3`}>Upahaar is dedicated to saving lives through blood stem cell and organ donation. Join the registry today and give someone the gift of hope.</p>
-          <div className="flex flex-row justify-center space-x-7 lg:space-x-15 pb-10">
-            <StatCard number={150} label={'Volunteers'} symbol="+"></StatCard>
-            <StatCard number={50} label={'Organ donors'} symbol="+"></StatCard>
-          </div>
-
-          <div className="flex justify-center lg:mb-15 pb-10 space-x-2 md:space-x-7 lg:space-x-15 lg:mt-10 w-full">
+      <div className="min-h-fit w-full relative flex flex-col z-0 md:grid md:grid-cols-2 place-items-center pt-10 md:pt-20 md:pb-10 lg:pb-20 lg:pt-30 bg-gradient-to-br from-[#d4eaff] via-[#a3d8ff] to-[#6bbefb]">
+        <div className="grid grid-rows-2 place-items-center">
+          <Heading></Heading>
+          <div className="flex justify-center lg:mb-15 space-x-3 md:space-x-7 lg:space-x-15 w-full">
             <RedirectButton></RedirectButton>
             <button onClick={() => {
               AboutUsRef.current?.scrollIntoView({
