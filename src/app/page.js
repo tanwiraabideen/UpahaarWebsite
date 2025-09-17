@@ -31,6 +31,14 @@ const handleAnimationComplete = () => {
   console.log('Animation completed!');
 };
 
+const handleOrganDonationRegistration = () => {
+  window.open('https://www.organdonation.nhs.uk', '_blank');
+};
+
+const handleStemCellDonationRegistration = () => {
+  window.open('https://www.dkms.org.uk', '_blank');
+};
+
 export default function Home() {
   const AboutUsRef = useRef()
   const volunteerRef = useRef()
@@ -48,10 +56,10 @@ export default function Home() {
 
           {/* Mobile: Column layout with 3 buttons */}
           <div className="flex md:hidden flex-col items-center space-y-3 w-full px-4">
-            <button className="text-sm btn btn-lg btn-success rounded-full w-full max-w-xs">
+            <button className="text-sm btn btn-lg btn-success rounded-full w-full max-w-xs" onClick={handleStemCellDonationRegistration}>
               Register as a stem cell donor
             </button>
-            <button className="text-sm btn btn-lg btn-success rounded-full w-full max-w-xs">
+            <button className="text-sm btn btn-lg btn-success rounded-full w-full max-w-xs" onClick={handleOrganDonationRegistration}>
               Register as a solid organ donor
             </button>
             <button onClick={() => {
@@ -67,13 +75,13 @@ export default function Home() {
           <div className="hidden md:flex md:flex-col md:items-center md:space-y-4 lg:mb-15 w-full px-4">
             {/* First row - Registration buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-8 w-full max-w-4xl justify-center">
-              <button className="text-xs md:text-sm lg:text-md xl:text-xl btn btn-sm md:btn-md lg:btn-lg btn-success rounded-full flex-shrink min-w-0 px-2 sm:px-4 lg:px-6 whitespace-nowrap max-w-[45%]">
+              <button onClick={handleStemCellDonationRegistration} className="text-xs md:text-sm lg:text-md xl:text-xl btn btn-sm md:btn-md lg:btn-lg btn-success rounded-full flex-shrink min-w-0 px-2 sm:px-4 lg:px-6 whitespace-nowrap max-w-[45%]">
                 <span className="hidden lg:inline">Register as a stem cell donor</span>
                 <span className="lg:hidden">Stem cell donation</span>
               </button>
               <button className="text-xs md:text-sm lg:text-md xl:text-xl btn btn-sm md:btn-md lg:btn-lg btn-success rounded-full flex-shrink min-w-0 px-2 sm:px-4 lg:px-6 whitespace-nowrap max-w-[45%]">
                 <span className="hidden lg:inline">Register as a solid organ donor</span>
-                <span className="lg:hidden">Organ donation</span>
+                <span onClick={handleOrganDonationRegistration} className="lg:hidden">Organ donation</span>
               </button>
             </div>
 
@@ -83,7 +91,7 @@ export default function Home() {
                 AboutUsRef.current?.scrollIntoView({
                   behavior: 'smooth'
                 })
-              }} className="text-sm lg:text-xl btn btn-md lg:btn-lg btn-outline btn-neutral rounded-full">
+              }} className="text-xs md:text-sm lg:text-md xl:text-xl btn btn-md lg:btn-lg btn-outline btn-neutral rounded-full">
                 Learn More
               </button>
             </div>
