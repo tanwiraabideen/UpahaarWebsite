@@ -118,7 +118,7 @@ export default function Directors() {
                             </button>
 
                             {/* Modal content */}
-                            <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
+                            <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center md:items-start ">
                                 {/* Director image */}
                                 <div className="flex-shrink-0">
                                     <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-400 to-purple-500 p-2">

@@ -54,7 +54,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
     }
 
     return (
-        <div className="w-full py-16 px-4">
+        <div className="w-full px-4">
             <div className="max-w-7xl mx-auto">
                 {/* Carousel Container */}
                 <div
@@ -79,20 +79,20 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                                 <div
                                     key={`${volunteer.fullName}-${index}`}
                                     className={`${volunteers.length === 1 ? "w-1/3" : "w-1/3"
-                                        } flex-shrink-0 px-4`}
+                                        } flex-shrink-0 px-4 py-2`}
                                 >
-                                    <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                                    <div className="rounded-2xl p-6 transition-all duration-300 transform hover:-translate-y-2">
                                         <div className="relative w-48 h-48 mx-auto mb-6 overflow-hidden rounded-xl">
                                             <Image
                                                 src={volunteer.image}
                                                 alt={volunteer.fullName}
                                                 fill
-                                                className="object-cover"
+                                                className="object-cover shadow-2xl"
                                                 sizes="(max-width: 768px) 100vw, 33vw"
                                             />
                                         </div>
                                         <div className="text-center">
-                                            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                                            <h3 className="text-xl font-light text-gray-200 mb-2">
                                                 {volunteer.fullName}
                                             </h3>
                                         </div>
@@ -116,7 +116,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                         >
                             {volunteers.map((volunteer, index) => (
                                 <div key={index} className="w-full flex-shrink-0 px-20">
-                                    <div className="bg-white rounded-2xl py-2 shadow-lg max-w-sm mx-auto">
+                                    <div className=" rounded-2xl py-2 max-w-sm mx-auto">
                                         <div className="relative w-40 h-40 mx-auto mb-4 overflow-hidden rounded-xl">
                                             <Image
                                                 src={volunteer.image}
@@ -127,7 +127,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                                             />
                                         </div>
                                         <div className="text-center">
-                                            <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                                            <h3 className="text-lg font-light text-gray-200 mb-2">
                                                 {volunteer.fullName}
                                             </h3>
                                         </div>

@@ -41,28 +41,60 @@ export default function Home() {
     <div className="w-full relative">
       <Navbar volunteerRef={volunteerRef} AboutUsRef={AboutUsRef}></Navbar>
 
-
-
       {/* Hero Section */}
       <div className="min-h-fit w-full relative flex flex-col z-0 md:grid md:grid-cols-2 place-items-center pt-10 md:pt-20 md:pb-10 lg:pb-20 lg:pt-30 bg-gradient-to-br from-[#d4eaff] via-[#a3d8ff] to-[#6bbefb]">
         <div className="grid grid-rows-2 place-items-center">
           <Heading></Heading>
-          <div className="flex justify-center lg:mb-15 space-x-3 md:space-x-7 lg:space-x-15 w-full">
-            <RedirectButton></RedirectButton>
+
+          {/* Mobile: Column layout with 3 buttons */}
+          <div className="flex md:hidden flex-col items-center space-y-3 w-full px-4">
+            <button className="text-sm btn btn-lg btn-success rounded-full w-full max-w-xs">
+              Register as a stem cell donor
+            </button>
+            <button className="text-sm btn btn-lg btn-success rounded-full w-full max-w-xs">
+              Register as a solid organ donor
+            </button>
             <button onClick={() => {
               AboutUsRef.current?.scrollIntoView({
                 behavior: 'smooth'
               })
-            }} className="text-sm md:text-sm lg:text-xl btn btn-lg btn-outline btn-neutral rounded-full">
+            }} className="text-sm btn btn-lg btn-outline btn-neutral rounded-full w-full max-w-xs">
               Learn More
             </button>
           </div>
-        </div>
-        <div className="hidden md:block md:mb-40 md:h-80 lg:h-96">
-          <Image src={organDonationImg}></Image>
+
+          {/* Desktop: Two row layout */}
+          <div className="hidden md:flex md:flex-col md:items-center md:space-y-4 lg:mb-15 w-full px-4">
+            {/* First row - Registration buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-8 w-full max-w-4xl justify-center">
+              <button className="text-xs md:text-sm lg:text-md xl:text-xl btn btn-sm md:btn-md lg:btn-lg btn-success rounded-full flex-shrink min-w-0 px-2 sm:px-4 lg:px-6 whitespace-nowrap max-w-[45%]">
+                <span className="hidden lg:inline">Register as a stem cell donor</span>
+                <span className="lg:hidden">Stem cell donation</span>
+              </button>
+              <button className="text-xs md:text-sm lg:text-md xl:text-xl btn btn-sm md:btn-md lg:btn-lg btn-success rounded-full flex-shrink min-w-0 px-2 sm:px-4 lg:px-6 whitespace-nowrap max-w-[45%]">
+                <span className="hidden lg:inline">Register as a solid organ donor</span>
+                <span className="lg:hidden">Organ donation</span>
+              </button>
+            </div>
+
+            {/* Second row - Learn More button */}
+            <div className="flex justify-center">
+              <button onClick={() => {
+                AboutUsRef.current?.scrollIntoView({
+                  behavior: 'smooth'
+                })
+              }} className="text-sm lg:text-xl btn btn-md lg:btn-lg btn-outline btn-neutral rounded-full">
+                Learn More
+              </button>
+            </div>
+          </div>
         </div>
 
+        <div className="hidden md:block md:mb-40 w-auto">
+          <Image className="md:h-70 lg:h-86 w-auto" src={organDonationImg}></Image>
+        </div>
       </div>
+
       {/* LightRays as background overlay - only for hero section */}
       <div style={{
         position: 'absolute',
@@ -116,9 +148,6 @@ export default function Home() {
             Register as a volunteer
           </Button>
         </div>
-
-
-
 
         <div className="flex flex-col space-y-8 mt-20 pb-20">
           <BlurText

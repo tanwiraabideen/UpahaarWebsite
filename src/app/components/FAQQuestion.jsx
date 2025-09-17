@@ -21,7 +21,7 @@ const SingleFAQQuestion = ({ question, children }) => {
 
             {isOpen && (
                 <div className="px-6 pb-4 transition-all duration-200 ease-out">
-                    <div className="border-t border-gray-100 pt-4">
+                    <div className="border-t border-gray-900 pt-4">
                         <div className="text-gray-700 leading-relaxed break-words">
                             {children}
                         </div>
