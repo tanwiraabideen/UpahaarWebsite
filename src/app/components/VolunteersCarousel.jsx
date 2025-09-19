@@ -144,7 +144,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                     <div className="flex justify-center items-center mt-8 gap-4">
                         <button
                             onClick={prevSlide}
-                            className="bg-white bg-opacity-20 hover:bg-opacity-30 hover:cursor-pointer text-black rounded-full p-3 transition-all duration-300 backdrop-blur-sm"
+                            className="bg-slate-400 bg-opacity-20 hover:bg-opacity-30 hover:cursor-pointer text-black rounded-full p-3 transition-all duration-300 backdrop-blur-sm"
                             aria-label="Previous volunteer"
                         >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -159,8 +159,8 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                                     key={index}
                                     onClick={() => goToSlide(index)}
                                     className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex
-                                        ? 'bg-white w-8'
-                                        : 'bg-white bg-opacity-40 hover:bg-opacity-60'
+                                        ? 'bg-slate-400 w-8'
+                                        : 'bg-slate-400 bg-opacity-40 hover:bg-opacity-60'
                                         }`}
                                     aria-label={`Go to position ${index + 1}`}
                                 />
@@ -169,7 +169,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
 
                         <button
                             onClick={nextSlide}
-                            className="bg-white bg-opacity-20 hover:bg-opacity-30 hover:cursor-pointer text-black rounded-full p-3 transition-all duration-300 backdrop-blur-sm"
+                            className="bg-slate-400 bg-opacity-20 hover:bg-opacity-30 hover:cursor-pointer text-black rounded-full p-3 transition-all duration-300 backdrop-blur-sm"
                             aria-label="Next volunteer"
                         >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

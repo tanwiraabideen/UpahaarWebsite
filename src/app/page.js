@@ -79,9 +79,9 @@ export default function Home() {
                 <span className="hidden lg:inline">Register as a stem cell donor</span>
                 <span className="lg:hidden">Stem cell donation</span>
               </button>
-              <button className="text-xs md:text-sm lg:text-md xl:text-xl btn btn-sm md:btn-md lg:btn-lg btn-success rounded-full flex-shrink min-w-0 px-2 sm:px-4 lg:px-6 whitespace-nowrap max-w-[45%]">
+              <button onClick={handleOrganDonationRegistration} className="text-xs md:text-sm lg:text-md xl:text-xl btn btn-sm md:btn-md lg:btn-lg btn-success rounded-full flex-shrink min-w-0 px-2 sm:px-4 lg:px-6 whitespace-nowrap max-w-[45%]">
                 <span className="hidden lg:inline">Register as a solid organ donor</span>
-                <span onClick={handleOrganDonationRegistration} className="lg:hidden">Organ donation</span>
+                <span className="lg:hidden">Organ donation</span>
               </button>
             </div>
 
