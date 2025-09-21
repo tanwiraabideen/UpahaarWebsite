@@ -56,7 +56,7 @@ export default function Directors() {
 
                     {/* Mobile Layout - Horizontal Scroll */}
                     <div className="md:hidden">
-                        <div className="flex gap-4 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide px-4 -mx-4">
+                        <div className="flex gap-4 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 py-4">
                             {directors.map((director) => (
                                 <div
                                     key={director.trusteeId}

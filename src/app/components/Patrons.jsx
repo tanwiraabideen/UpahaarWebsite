@@ -156,7 +156,7 @@ export default function Patrons() {
                     {/* Mobile (1 card at a time) */}
                     <div className="md:hidden">
                         <div
-                            className="flex transition-transform duration-500 ease-out"
+                            className="flex transition-transform duration-500 ease-out py-2"
                             style={{
                                 transform: `translateX(-${currentIndex * 100}%)`,
                             }}
