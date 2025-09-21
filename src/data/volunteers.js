@@ -3,7 +3,8 @@
 export const volunteers = [
     {
         image: "https://res.cloudinary.com/dyollfze8/image/upload/v1755808738/mehnaz_v5wz5n.jpg",
-        fullName: "Mehnaz Aabideen"
+        fullName: "Mehnaz Aabideen",
+        description: "Final year medical student currently studying at Peninsula Medical School, the University of Plymouth. Alongside my studies, I enjoy teaching other medical students and volunteering for St John Ambulance. My interests lie in internal medicine specialties such as Nephrology and Haematology."
     },
     {
         trusteeId: "fr4f",
