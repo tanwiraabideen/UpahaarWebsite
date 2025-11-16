@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
-import { getPreviousEvents } from "../actions/actions";
 import LoadingSpinner from "./LoadingSpinner";
 import { previousEvents } from "@/data/previousEvents";
 
