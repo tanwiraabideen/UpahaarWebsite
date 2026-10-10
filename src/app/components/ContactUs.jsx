@@ -71,7 +71,7 @@ export default function ContactUs() {
                             <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl p-8 shadow-2xl">
                                 <div className="w-80 h-80 bg-blue-600 bg-opacity-30 rounded-xl flex items-center justify-center border border-white border-opacity-20">
                                     <div className="text-center text-white px-6">
-                                        <Image src={img}></Image>
+                                        <Image src={img} alt="Hands cupped around a paper model of a pair of kidneys"></Image>
                                     </div>
                                 </div>
                             </div>

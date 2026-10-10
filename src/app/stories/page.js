@@ -1,15 +1,18 @@
-'use client'
+
 import BlurText from "../../Animations/BlurText/BlurText";
 import { Playfair_Display } from 'next/font/google';
 import Navbar from "../components/Navbar";
 import AceternityBentoStories from "../components/BentoGrid";
+import { getFromApi } from "@/lib/api";
 
 const playfair = Playfair_Display({
     subsets: ['latin'],
     weight: ['400', '700'],
 });
 
-export default function Stories() {
+export default async function Stories() {
+    const stories = await getFromApi('/stories')
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-[#d4eaff] via-[#a3d8ff] to-[#6bbefb] pb-20">
             <Navbar />
@@ -28,7 +31,7 @@ export default function Stories() {
             </div>
 
             <div className="mt-16">
-                <AceternityBentoStories />
+                <AceternityBentoStories stories={stories} />
             </div>
         </div>
     );

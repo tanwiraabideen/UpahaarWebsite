@@ -8,5 +8,6 @@ from app.config import settings
 pool = ConnectionPool(
     conninfo=settings.database_url,
     open=False,
-    kwargs={"row_factory": dict_row}
+    kwargs={"row_factory": dict_row},
+    check=ConnectionPool.check_connection,
 )

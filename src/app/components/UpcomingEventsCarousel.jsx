@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import LoadingSpinner from "./LoadingSpinner";
-import { upcomingEvents } from "@/data/futureEvents";
 
 // Mini carousel inside the card for event images
 const ImageCarousel = ({ images }) => {
@@ -83,7 +82,7 @@ const formatEventDate = (dateString) => {
     });
 };
 
-export function UpcomingEventsCarousel() {
+export function UpcomingEventsCarousel({ upcomingEvents }) {
 
 
     const sortedData = upcomingEvents

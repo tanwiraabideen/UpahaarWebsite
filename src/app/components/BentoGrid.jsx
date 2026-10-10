@@ -4,10 +4,9 @@ import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BeatLoader } from "react-spinners"
 import Image from 'next/image';
-import { stories } from '@/data/stories.js';
 import LoadingSpinner from './LoadingSpinner.jsx';
 
-const AceternityBentoStories = () => {
+const AceternityBentoStories = ({ stories }) => {
 
     const [expandedStory, setExpandedStory] = useState(null);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -53,6 +52,8 @@ const AceternityBentoStories = () => {
                         src={story.images[0]}
                         alt={story.title}
                         fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        priority={index === 0}
                         className="object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                 )}

@@ -1,8 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
-import LoadingSpinner from "./LoadingSpinner";
-import { previousEvents } from "@/data/previousEvents";
 
 // Mini carousel inside the card for event images
 const ImageCarousel = ({ images }) => {
@@ -83,7 +81,7 @@ const formatEventDate = (dateString) => {
     });
 };
 
-export function PreviousEventsCarousel() {
+export function PreviousEventsCarousel({ previousEvents }) {
 
 
     const sortedData = previousEvents

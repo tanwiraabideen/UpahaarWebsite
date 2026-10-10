@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 
@@ -99,7 +100,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                         >
                             {volunteers.map((volunteer, index) => (
                                 <div
-                                    key={`${volunteer.fullName}-${index}`}
+                                    key={`${volunteer.name}-${index}`}
                                     className={`${volunteers.length === 1 ? "w-1/3" : "w-1/3"
                                         } flex-shrink-0 px-4 py-2`}
                                 >
@@ -113,7 +114,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                                                 <div className="w-20 h-20 lg:w-24 lg:h-24 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-purple-500 p-1">
                                                     <Image
                                                         src={volunteer.image}
-                                                        alt={volunteer.fullName}
+                                                        alt={volunteer.name}
                                                         width={96}
                                                         height={96}
                                                         className="w-full h-full object-cover rounded-full bg-white"
@@ -123,7 +124,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
 
                                             {/* Name */}
                                             <h3 className="text-lg lg:text-xl font-semibold text-gray-800 text-center mb-3 group-hover:text-blue-600 transition-colors">
-                                                {volunteer.fullName}
+                                                {volunteer.name}
                                             </h3>
 
                                             {/* Click for description */}
@@ -157,7 +158,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                                                 <div className="w-16 h-16 mx-auto rounded-full overflow-hidden bg-gradient-to-br from-blue-400 to-purple-500 p-1">
                                                     <Image
                                                         src={volunteer.image}
-                                                        alt={volunteer.fullName}
+                                                        alt={volunteer.name}
                                                         width={64}
                                                         height={64}
                                                         className="w-full h-full object-cover rounded-full bg-white"
@@ -167,7 +168,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
 
                                             {/* Name */}
                                             <h3 className="text-lg font-semibold text-gray-800 text-center mb-3 group-hover:text-blue-600 transition-colors">
-                                                {volunteer.fullName}
+                                                {volunteer.name}
                                             </h3>
 
                                             {/* Click for description */}
@@ -256,7 +257,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                                     <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-400 to-purple-500 p-2">
                                         <Image
                                             src={selectedVolunteer.image}
-                                            alt={selectedVolunteer.fullName}
+                                            alt={selectedVolunteer.name}
                                             width={192}
                                             height={192}
                                             className="w-full h-full object-cover rounded-xl bg-white"
@@ -267,7 +268,7 @@ const VolunteersCarousel = ({ volunteers = [] }) => {
                                 {/* Volunteer info */}
                                 <div className="flex-1 text-center md:text-left">
                                     <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
-                                        {selectedVolunteer.fullName}
+                                        {selectedVolunteer.name}
                                     </h2>
                                     <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto md:mx-0 mb-4 md:mb-6"></div>
                                     <p className="text-gray-600 text-base md:text-lg leading-relaxed">

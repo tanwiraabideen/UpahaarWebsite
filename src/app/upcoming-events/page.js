@@ -1,11 +1,14 @@
+import { getFromApi } from "@/lib/api";
 import Navbar from "../components/Navbar";
 import { UpcomingEventsCarousel } from "../components/UpcomingEventsCarousel";
 
-export default function Home() {
+export default async function Home() {
+    const events = await getFromApi('/events?when=upcoming')
+
     return (
         <div>
             <Navbar></Navbar>
-            <UpcomingEventsCarousel></UpcomingEventsCarousel>
+            <UpcomingEventsCarousel upcomingEvents={events}></UpcomingEventsCarousel>
         </div>
     )
 }

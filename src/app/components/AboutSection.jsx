@@ -16,7 +16,7 @@ const handleAnimationComplete = () => {
 export default function AboutSection() {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2  items-center ">
-            <Image src={AboutUsImage} className="hidden md:block md:pt-20 justify-self-center md:mt-6"></Image>
+            <Image src={AboutUsImage} alt="A volunteer in a Volunteer T-shirt talking with a smiling child" className="hidden md:block md:pt-20 justify-self-center md:mt-6"></Image>
             <div className="grid grid-rows-2 place-items-center">
                 <BlurText
                     text="About Us"

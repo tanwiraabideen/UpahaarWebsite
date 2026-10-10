@@ -1,5 +1,5 @@
+'use client'
 import { useState, useRef } from "react";
-import { patrons } from "@/data/patrons"; // <-- your patrons data
 import LoadingSpinner from "./LoadingSpinner";
 
 // Reusable card component
@@ -73,7 +73,7 @@ function PatronCard({ patron, onClick, isMobile = false }) {
     );
 }
 
-export default function Patrons() {
+export default function Patrons({ patrons }) {
     const [selectedPatron, setSelectedPatron] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const carouselRef = useRef(null);
@@ -125,7 +125,7 @@ export default function Patrons() {
                             <div className="flex justify-center ">
                                 {patrons.map((patron) => (
                                     <PatronCard
-                                        key={patron.patronId}
+                                        key={patron.id}
                                         patron={patron}
                                         onClick={setSelectedPatron}
                                     />
@@ -140,7 +140,7 @@ export default function Patrons() {
                             >
                                 {patrons.map((patron) => (
                                     <div
-                                        key={patron.patronId}
+                                        key={patron.id}
                                         className="w-1/3 flex-shrink-0 px-4"
                                     >
                                         <PatronCard
@@ -163,7 +163,7 @@ export default function Patrons() {
                         >
                             {patrons.map((patron) => (
                                 <div
-                                    key={patron.patronId}
+                                    key={patron.id}
                                     className="flex-shrink-0 w-full min-w-full px-4"
                                 >
                                     <PatronCard

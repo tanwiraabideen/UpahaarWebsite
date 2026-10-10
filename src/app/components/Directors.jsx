@@ -1,9 +1,9 @@
+'use client'
 import Image from "next/image";
-import { directors } from "@/data/trustees";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "./LoadingSpinner";
 
-export default function Directors() {
+export default function Directors({ directors }) {
     const [selectedDirector, setSelectedDirector] = useState(null);
 
     return (
@@ -21,7 +21,7 @@ export default function Directors() {
                     <div className="hidden md:flex md:flex-wrap md:justify-center md:items-center gap-6">
                         {directors.map((director) => (
                             <div
-                                key={director.trusteeId}
+                                key={director.id}
                                 onClick={() => setSelectedDirector(director)}
                                 className="w-full max-w-xs bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group transform hover:scale-105"
                             >
@@ -59,7 +59,7 @@ export default function Directors() {
                         <div className="flex gap-4 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide px-4 -mx-4 py-4">
                             {directors.map((director) => (
                                 <div
-                                    key={director.trusteeId}
+                                    key={director.id}
                                     onClick={() => setSelectedDirector(director)}
                                     className="flex-shrink-0 w-64 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group snap-center transform hover:scale-105"
                                 >

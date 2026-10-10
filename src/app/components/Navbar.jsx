@@ -137,7 +137,7 @@ export default function Component() {
                     {/* Main nav */}
                     <div className="flex items-center gap-6">
                         <a href="/" className="text-primary hover:text-primary/90">
-                            <Image src={"https://res.cloudinary.com/dyollfze8/image/upload/v1755039585/upahaarlogo_ytqvny.png"} height={50} width={75} />
+                            <Image src={"https://res.cloudinary.com/dyollfze8/image/upload/v1755039585/upahaarlogo_ytqvny.png"} alt="Upahaar logo" height={29} width={75} />
                         </a>
                         {/* Navigation menu */}
                         <NavigationMenu viewport={false} className="max-md:hidden">
