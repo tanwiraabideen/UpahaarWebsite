@@ -10,5 +10,6 @@ const nextConfig = {
             }
         ],
     },
+    output: "standalone"
 }
 export default withFlowbiteReact(nextConfig);
