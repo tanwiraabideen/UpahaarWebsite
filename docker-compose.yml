@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      # Compose fills these in from .env next to this file; the defaults after :- apply when a variable is unset.
+      POSTGRES_USER: ${POSTGRES_USER:-upahaar}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-upahaar_dev_password}
+      POSTGRES_DB: ${POSTGRES_DB:-upahaar}
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
